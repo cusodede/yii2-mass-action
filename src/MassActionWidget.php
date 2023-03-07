@@ -53,10 +53,10 @@ class MassActionWidget extends Widget {
 	private function initHandler():void {
 		foreach ($this->actions as $actionConfig) {
 			if (is_array($actionConfig)) $actionConfig = new ActionConfig($actionConfig);
+			/** @var MassModelInterface $handlerModel */
 			$handlerModel = new $actionConfig->actionHandlerClass([
 				'handleUrl' => sprintf('%s%s', $this->getControllerDefaultRouteAction(), 'mass-operation'),
 			]);
-			if (!($handlerModel instanceof MassModelInterface)) throw new InvalidConfigException("{$handlerModel} должен быть экземпляром MultiModel");
 			if (false === $this->isVisible($handlerModel, $actionConfig)) continue;
 			$this->_dropdownItems[] = [
 				'url' => '#',
@@ -74,7 +74,7 @@ class MassActionWidget extends Widget {
 	}
 
 	/**
-	 * @param BaseMassModel $handlerModel
+	 * @param MassModelInterface $handlerModel
 	 * @param ActionConfig $actionConfig
 	 * @return bool
 	 * @throws InvalidConfigException
@@ -124,9 +124,9 @@ class MassActionWidget extends Widget {
 	 * @throws InvalidConfigException
 	 */
 	private function registerController():void {
-		if (!($this->view->context instanceof ViewContextInterface)) throw new InvalidConfigException("{$this->view->context} должен быть должен быть реализован от ViewContextInterface");
-		if (!($this->view->context instanceof Controller)) throw new InvalidConfigException("{$this->view->context} должен быть должен быть экземпляром Controller");
-		if (!($this->view->context instanceof MassActionControllerInterface)) throw new InvalidConfigException("{$this->view->context} должен быть реализован от MassActionControllerInterface");
+		if (!($this->view->context instanceof ViewContextInterface)) throw new InvalidConfigException("Контекст должен быть реализован от ViewContextInterface");
+		if (!($this->view->context instanceof Controller)) throw new InvalidConfigException("Контекст должен быть экземпляром Controller");
+		if (!($this->view->context instanceof MassActionControllerInterface)) throw new InvalidConfigException("Контекст должен быть реализован от MassActionControllerInterface");
 		$this->controller = $this->view->context;
 	}
 
@@ -134,6 +134,6 @@ class MassActionWidget extends Widget {
 	 * @return string
 	 */
 	private function getControllerDefaultRouteAction():string {
-		return sprintf("/%s", str_replace($this->controller->action->id, '', $this->controller->route));
+		return sprintf("/%s", str_replace($this->controller->action->id, '', $this->controller->route));//@phpstan-ignore-line controller is instance of Controller
 	}
 }
