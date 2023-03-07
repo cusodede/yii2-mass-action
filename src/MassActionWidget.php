@@ -53,7 +53,7 @@ class MassActionWidget extends Widget {
 	private function initHandler():void {
 		foreach ($this->actions as $actionConfig) {
 			if (is_array($actionConfig)) $actionConfig = new ActionConfig($actionConfig);
-			/** @var MassModelInterface|BaseMassModel $handlerModel */
+			/** @var BaseMassModel $handlerModel */
 			$handlerModel = new $actionConfig->actionHandlerClass([
 				'handleUrl' => sprintf('%s%s', $this->getControllerDefaultRouteAction(), 'mass-operation'),
 			]);
