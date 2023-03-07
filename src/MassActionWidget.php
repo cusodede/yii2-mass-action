@@ -5,8 +5,6 @@ namespace cusodede\grid\widgets\mass_action;
 
 use cusodede\grid\widgets\mass_action\models\BaseMassModel;
 use cusodede\grid\widgets\mass_action\models\MassModelInterface;
-use cusodede\grid\widgets\mass_action\models\UsersHelper;
-use Exception;
 use kartik\bs4dropdown\ButtonDropdown;
 use Throwable;
 use Yii;
@@ -82,11 +80,10 @@ class MassActionWidget extends Widget {
 	 * @throws InvalidConfigException
 	 * @throws Throwable
 	 * @throws ForbiddenHttpException
+	 * todo: test
 	 */
 	private function isVisible(MassModelInterface $handlerModel, ActionConfig $actionConfig):bool {
-		if ((null !== $handlerModel->permissionAction) && false === UsersHelper::CurrentUser()?->hasUrlPermission(sprintf('%s%s', $this->getControllerDefaultRouteAction(), $handlerModel->permissionAction))) return false;
-		if (false === $actionConfig->visible) return false;
-		return true;
+		return (((is_callable($actionConfig->visible) && call_user_func($actionConfig->visible, $this, $handlerModel)) || $actionConfig->visible));
 	}
 
 	/**

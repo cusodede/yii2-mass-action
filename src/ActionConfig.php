@@ -10,11 +10,14 @@ use yii\base\Model;
  * Конфиг для пункта выпадающего меню MultiActionColumn
  * @property array $options html-опции пункта меню
  * @property string $actionHandlerClass Название экземпляра класса MultiModel, производящего обработку действия
- * @property bool $visible Включение отображения пункта меню
+ * @property bool|callable $visible Включение отображения пункта меню
  */
 class ActionConfig extends Model {
 	public string $actionHandlerClass;
-	public bool $visible = true;
+	/**
+	 * @var callable|bool
+	 */
+	public mixed $visible = true;
 	public array $options = [];
 
 	/**
@@ -22,7 +25,7 @@ class ActionConfig extends Model {
 	 */
 	public function rules():array {
 		return [
-			[['visible'], 'boolean'],
+			[['visible'], 'safe'],
 			[['actionHandlerClass'], 'string'],
 			[['options'], 'safe'],
 			[['id', 'class'], 'required']
@@ -44,16 +47,16 @@ class ActionConfig extends Model {
 	}
 
 	/**
-	 * @return bool
+	 * @return bool|callable
 	 */
-	public function getVisible():bool {
+	public function getVisible():bool|callable {
 		return $this->visible;
 	}
 
 	/**
-	 * @param bool $visible
+	 * @param bool|callable $visible
 	 */
-	public function setVisible(bool $visible):void {
+	public function setVisible(bool|callable $visible):void {
 		$this->visible = $visible;
 	}
 
