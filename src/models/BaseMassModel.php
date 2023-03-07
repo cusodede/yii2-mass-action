@@ -51,7 +51,7 @@ abstract class BaseMassModel extends Model implements MassModelInterface, ViewCo
 			'model' => $this,
 			'id' => $this->id,//здесь обязательно, иначе генерируемая кнопка не сработает. Если форма сама рисует кнопку, можно обойтись
 			'handleUrl' => $this->handleUrl,
-			'fromUrl' => Yii::$app->request->absoluteUrl
+			'fromUrl' => Yii::$app->request->absoluteUrl//@phpstan-ignore-line request is instance of WebRequest
 		], $this);
 	}
 
@@ -60,7 +60,7 @@ abstract class BaseMassModel extends Model implements MassModelInterface, ViewCo
 	 * todo: add test
 	 */
 	public function getModels():array {
-		return $this->modelClass::findAll([$this->_modelKeys]);
+		return $this->modelClass::findAll([$this->_modelKeys]);//@phpstan-ignore-line it's allowed to call static methods from class by class name
 	}
 
 	/**
