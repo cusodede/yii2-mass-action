@@ -16,6 +16,11 @@ namespace cusodede\grid\widgets\mass_action\models;
 interface MassModelInterface {
 
 	/**
+	 * @return string
+	 */
+	public function getLabel():string;
+
+	/**
 	 * same as Model::load()
 	 * @param array $data
 	 * @param null|string $formName

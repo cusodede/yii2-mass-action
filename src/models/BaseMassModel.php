@@ -39,11 +39,6 @@ abstract class BaseMassModel extends Model implements MassModelInterface, ViewCo
 	}
 
 	/**
-	 * @return string
-	 */
-	abstract public function getLabel():string;
-
-	/**
 	 * @inheritDoc
 	 */
 	public function init():void {
