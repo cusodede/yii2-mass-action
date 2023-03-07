@@ -19,7 +19,7 @@ use yii\web\JsExpression;
  * @property string $permissionAction - экшен, который будет проверяться для доступа
  */
 abstract class BaseMassModel extends Model implements MassModelInterface, ViewContextInterface {
-	protected string $id;
+	public string $id;
 	public null|string|ActiveRecordInterface $modelClass = null;
 	public null|string $handleUrl = null;
 	public string $modalContent;
