@@ -5,7 +5,7 @@ namespace cusodede\grid\widgets\mass_action;
 
 use cusodede\grid\widgets\mass_action\models\BaseMassModel;
 use cusodede\grid\widgets\mass_action\models\MassModelInterface;
-use app\models\sys\users\Users;
+use cusodede\grid\widgets\mass_action\models\UsersHelper;
 use Exception;
 use kartik\bs4dropdown\ButtonDropdown;
 use Throwable;
@@ -84,7 +84,7 @@ class MassActionWidget extends Widget {
 	 * @throws ForbiddenHttpException
 	 */
 	private function isVisible(MassModelInterface $handlerModel, ActionConfig $actionConfig):bool {
-		if ((null !== $handlerModel->permissionAction) && false === Users::Current()->hasUrlPermission(sprintf('%s%s', $this->getControllerDefaultRouteAction(), $handlerModel->permissionAction))) return false;
+		if ((null !== $handlerModel->permissionAction) && false === UsersHelper::CurrentUser()?->hasUrlPermission(sprintf('%s%s', $this->getControllerDefaultRouteAction(), $handlerModel->permissionAction))) return false;
 		if (false === $actionConfig->visible) return false;
 		return true;
 	}

@@ -3,14 +3,13 @@ declare(strict_types = 1);
 
 namespace cusodede\grid\widgets\mass_action\models\actions;
 
-use app\components\db\ActiveRecordTrait;
 use cusodede\grid\widgets\mass_action\models\BaseMassModel;
-use yii\db\ActiveRecord;
+use yii\db\ActiveRecordInterface;
 
 /**
  * Class MassDelete
  *
- * @property ActiveRecordTrait[]|ActiveRecord[] $models
+ * @property ActiveRecordInterface[] $models
  *
  */
 class MassDelete extends BaseMassModel {

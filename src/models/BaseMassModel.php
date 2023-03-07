@@ -64,7 +64,6 @@ abstract class BaseMassModel extends Model implements MassModelInterface, ViewCo
 	 * @return array
 	 */
 	public function getModels():array {
-		/** @noinspection PhpPossiblePolymorphicInvocationInspection Нет класса - нет конфетки */
 		return $this->modelClass::findModels($this->_modelKeys);
 	}
 
