@@ -7,9 +7,7 @@ use yii\caching\DummyCache;
 use yii\web\AssetManager;
 use yii\web\ErrorHandler;
 
-$history = require __DIR__.'/history.php';
 $db = require __DIR__.'/db.php';
-$queue = require __DIR__.'/queue.php';
 
 $config = [
 	'id' => 'basic',
@@ -20,11 +18,7 @@ $config = [
 		'@bower' => '@vendor/bower-asset',
 		'@npm' => '@vendor/npm-asset',
 	],
-	'modules' => [
-		'history' => $history,
-	],
 	'components' => [
-		'queue' => $queue,
 		'request' => [
 			'cookieValidationKey' => 'sosijopu',
 		],
