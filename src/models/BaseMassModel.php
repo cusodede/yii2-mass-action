@@ -62,9 +62,10 @@ abstract class BaseMassModel extends Model implements MassModelInterface, ViewCo
 
 	/**
 	 * @return array
+	 * todo: add test
 	 */
 	public function getModels():array {
-		return $this->modelClass::findModels($this->_modelKeys);
+		return $this->modelClass::findAll([$this->_modelKeys]);
 	}
 
 	/**

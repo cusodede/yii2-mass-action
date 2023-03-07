@@ -28,7 +28,7 @@ class MassActionWidget extends Widget {
 
 	/**
 	 * @return string|void
-	 * @throws Exception
+	 * @throws Throwable
 	 */
 	public function run() {
 		if (null === $content = $this->getList()) return;
@@ -90,7 +90,7 @@ class MassActionWidget extends Widget {
 	}
 
 	/**
-	 * Генерирует дефолтные параметры элемента меню дропдауна, в основном для динамической генерации JS-кнопки вызова нужной модалки
+	 * Generates default dropdown parameters, mostly for modal calling js-button
 	 * @param null|MassModelInterface $actionHandler
 	 * @return array
 	 */
@@ -104,7 +104,7 @@ class MassActionWidget extends Widget {
 
 	/**
 	 * @return null|string
-	 * @throws Exception
+	 * @throws Throwable
 	 */
 	private function getList():?string {
 		if (empty($this->_modals)) return null;

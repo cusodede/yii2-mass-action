@@ -6,7 +6,7 @@ declare(strict_types = 1);
  * @var string $title
  * @var string $content
  */
-use app\components\helpers\Html;
+use yii\bootstrap4\Html;
 use yii\bootstrap4\Modal;
 
 ?>

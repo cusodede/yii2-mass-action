@@ -32,7 +32,7 @@ interface MassModelInterface {
 
 	/**
 	 * Применяет установленные параметры ко всем моделям целей
-	 * @param null|string $currentUrl необязательный параметр адреса, с которого был вызван обработчик (чтобы он мог вернуться к тому же урлу, при необходимости)
+	 * @param null|string $currentUrl  необязательный параметр адреса, с которого был вызван обработчик (чтобы он мог вернуться к тому же URL, при необходимости)
 	 * @return null|string может вернуть необязательный url перехода
 	 */
 	public function apply(?string $currentUrl = null):?string;
