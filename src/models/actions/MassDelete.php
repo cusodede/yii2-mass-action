@@ -8,9 +8,8 @@ use yii\db\ActiveRecordInterface;
 
 /**
  * Class MassDelete
- *
+ * This is an example of BaseMassModel implementation
  * @property ActiveRecordInterface[] $models
- *
  */
 class MassDelete extends BaseMassModel {
 	public string $id = 'mass-delete';
@@ -21,7 +20,7 @@ class MassDelete extends BaseMassModel {
 	 */
 	public function apply(?string $currentUrl = null):?string {
 		foreach ($this->models as $model) {
-			$model->safeDelete();
+			$model->delete();
 		}
 		return $currentUrl;
 	}
