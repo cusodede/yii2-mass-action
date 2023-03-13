@@ -21,15 +21,8 @@ use yii\web\View;
 	'dataProvider' => $dataProvider,
 	'filterModel' => $searchModel,
 	'filterOnFocusOut' => false,
-	'panel' => [
-		'heading' => false,
-	],
-	'panelBeforeTemplate' => '{optionsBtn}{newRecord}{toolbarContainer}{before}<div class="clearfix"></div>',
 	'summary' => null,
 	'showOnEmpty' => true,
-	'export' => false,
-	'resizableColumns' => true,
-	'responsive' => true,
 	'columns' => [
 		[
 			'class' => ActionColumn::class,
