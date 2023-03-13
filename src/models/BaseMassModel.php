@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace cusodede\grid\widgets\mass_action\models;
+namespace cusodede\mass_action\models;
 
 use Yii;
 use yii\base\Model;

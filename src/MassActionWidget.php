@@ -1,10 +1,10 @@
 <?php
 declare(strict_types = 1);
 
-namespace cusodede\grid\widgets\mass_action;
+namespace cusodede\mass_action;
 
-use cusodede\grid\widgets\mass_action\models\BaseMassModel;
-use cusodede\grid\widgets\mass_action\models\MassModelInterface;
+use cusodede\mass_action\models\BaseMassModel;
+use cusodede\mass_action\models\MassModelInterface;
 use kartik\bs4dropdown\ButtonDropdown;
 use Throwable;
 use Yii;

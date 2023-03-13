@@ -1,9 +1,9 @@
 <?php
 declare(strict_types = 1);
 
-namespace cusodede\grid\widgets\mass_action\models\actions;
+namespace cusodede\mass_action\models\actions;
 
-use cusodede\grid\widgets\mass_action\models\BaseMassModel;
+use cusodede\mass_action\models\BaseMassModel;
 use yii\db\ActiveRecordInterface;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace cusodede\grid\widgets\mass_action;
+namespace cusodede\mass_action;
 
 use yii\base\InvalidConfigException;
 use yii\web\Response;

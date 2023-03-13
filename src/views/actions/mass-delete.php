@@ -8,7 +8,7 @@ declare(strict_types = 1);
  * @var string $id
  */
 
-use cusodede\grid\widgets\mass_action\models\actions\MassDelete;
+use cusodede\mass_action\models\actions\MassDelete;
 use yii\helpers\Html;
 use yii\web\View;
 use yii\widgets\ActiveForm;

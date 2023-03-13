@@ -32,7 +32,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"cusodede\\grid\\widgets\\" : "src"
+			"cusodede\\mass_action" : "src"
 		}
 	},
 	"config" : {
