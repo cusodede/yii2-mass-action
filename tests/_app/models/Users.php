@@ -3,8 +3,6 @@ declare(strict_types = 1);
 
 namespace app\models;
 
-use cusodede\history\behaviors\HistoryBehavior;
-use pozitronik\helpers\Utils;
 use yii\db\ActiveRecord;
 use yii\db\Exception;
 use yii\web\IdentityInterface;
@@ -17,17 +15,6 @@ use yii\web\IdentityInterface;
  * @property-read string $authKey @see [[yii\web\IdentityInterface::getAuthKey()]]
  */
 class Users extends ActiveRecord implements IdentityInterface {
-
-	/**
-	 * @inheritDoc
-	 */
-	public function behaviors():array {
-		return [
-			'history' => [
-				'class' => HistoryBehavior::class
-			]
-		];
-	}
 
 	/**
 	 * {@inheritdoc}
@@ -113,7 +100,7 @@ class Users extends ActiveRecord implements IdentityInterface {
 	 */
 	public function saveAndReturn():static {
 		if (!$this->save()) {
-			throw new Exception(sprintf("Не получилось сохранить запись: %s", Utils::Errors2String($this->firstErrors)));
+			throw new Exception(sprintf("Не получилось сохранить запись: %s", implode(', ', $this->getErrorSummary(true))));
 		}
 		$this->refresh();
 		return $this;
