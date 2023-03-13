@@ -1,6 +1,6 @@
 {
 	"name" : "cusodede/yii2-mass-action",
-	"description" : "Mass operations on grind selection",
+	"description" : "Mass operations on grid selection",
 	"minimum-stability" : "dev",
 	"license" : "LGPL-3.0-or-later",
 	"authors" : [
