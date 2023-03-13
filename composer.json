@@ -32,7 +32,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"cusodede\\mass_action" : "src"
+			"cusodede\\mass_action\\" : "src"
 		}
 	},
 	"config" : {
