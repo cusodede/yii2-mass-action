@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace _app\controllers;
+namespace app\controllers;
 
 use app\models\UsersSearch;
 use Yii;
